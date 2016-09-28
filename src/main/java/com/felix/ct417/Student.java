@@ -1,8 +1,9 @@
-import java.util.Date;
-
+package com.felix.ct417;
 /**
  * Created by FelixDSantos on 28/09/2016.
  */
+import java.util.Date;
+
 public class Student {
 
     private String name;
@@ -16,11 +17,12 @@ public class Student {
         this.age=age;
         this.dob=dob;
         this.id=id;
-        this.username=getUsername(this.name,this.age);
+        this.username=getUsername(name,age);
+
     }
-    private String getUsername(String name, int age){
+    public String getUsername(String name, int age){
         String ageToConcat= Integer.toString(age);
-        return ageToConcat;
+        return (name+ageToConcat);
     }
 
     public String getName() {
@@ -37,12 +39,5 @@ public class Student {
 
     public int getId() {
         return id;
-    }
-
-    public static void main(String[] args){
-        Student student = new Student("Felix", 20, new Date(1996,03,15), 13376931);
-        String username= student.getUsername(student.getName(), student.getAge());
-        System.out.println(username);
-        System.out.println(student.getDob().toString());
     }
 }
