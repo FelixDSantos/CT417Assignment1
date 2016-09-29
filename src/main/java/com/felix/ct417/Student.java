@@ -5,6 +5,8 @@ package com.felix.ct417;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
+import java.util.ArrayList;
+
 
 public class Student {
 
@@ -13,7 +15,7 @@ public class Student {
     private int id;
     private int studentAge;
     private String username;
-
+    private ArrayList<Module> studentModules;
     public Student(String firstName,String lastName, LocalDate dob, int id){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -22,8 +24,14 @@ public class Student {
         this.studentAge= Years.yearsBetween(dob,presentTime).getYears();
         this.id=id;
         this.username=getUsername(firstName,lastName,this.studentAge);
+        this.studentModules = new ArrayList<Module>();
 
     }
+
+    public void addStudentModule(Module module) {
+        this.studentModules.add(module);
+    }
+
     public String getUsername(String firstName, String lastName, int age){
         String ageToConcat= Integer.toString(age);
         return (firstName+lastName+ageToConcat);
