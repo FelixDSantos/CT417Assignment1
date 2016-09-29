@@ -11,7 +11,7 @@ public class Student {
     private String firstName,lastName;
     private LocalDate dob;
     private int id;
-    private int age;
+    private int studentAge;
     private String username;
 
     public Student(String firstName,String lastName, LocalDate dob, int id){
@@ -19,9 +19,9 @@ public class Student {
         this.lastName=lastName;
         this.dob=dob;
         LocalDate presentTime = new LocalDate().now();
-        int studentAge= Years.yearsBetween(presentTime,dob).getYears();
+        this.studentAge= Years.yearsBetween(dob,presentTime).getYears();
         this.id=id;
-        this.username=getUsername(firstName,lastName,studentAge);
+        this.username=getUsername(firstName,lastName,this.studentAge);
 
     }
     public String getUsername(String firstName, String lastName, int age){
@@ -38,7 +38,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return studentAge;
     }
 
     public LocalDate getDob() {
