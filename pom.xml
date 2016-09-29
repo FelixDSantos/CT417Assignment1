@@ -25,7 +25,6 @@
             <version>-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
     <repositories>
         <repository>
             <id>jitpack.io</id>
