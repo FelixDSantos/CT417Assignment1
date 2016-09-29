@@ -5,32 +5,36 @@ package com.felix.ct417;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
-import java.util.Date;
 
 public class Student {
 
-    private String name;
+    private String firstName,lastName;
     private LocalDate dob;
     private int id;
     private int age;
     private String username;
 
-    public Student(String name, LocalDate dob, int id){
-        this.name=name;
+    public Student(String firstName,String lastName, LocalDate dob, int id){
+        this.firstName=firstName;
+        this.lastName=lastName;
         this.dob=dob;
         LocalDate presentTime = new LocalDate().now();
         int studentAge= Years.yearsBetween(presentTime,dob).getYears();
         this.id=id;
-        this.username=getUsername(name,studentAge);
+        this.username=getUsername(firstName,lastName,studentAge);
 
     }
-    public String getUsername(String name, int age){
+    public String getUsername(String firstName, String lastName, int age){
         String ageToConcat= Integer.toString(age);
-        return (name+ageToConcat);
+        return (firstName+lastName+ageToConcat);
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public int getAge() {
