@@ -30,6 +30,7 @@ public class Student {
 
     public void addStudentModule(Module module) {
         this.studentModules.add(module);
+        module.addStudent(this);
     }
 
     public String getUsername(String firstName, String lastName, int age){
