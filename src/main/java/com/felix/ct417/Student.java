@@ -2,22 +2,26 @@ package com.felix.ct417;
 /**
  * Created by FelixDSantos on 28/09/2016.
  */
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
+
 import java.util.Date;
 
 public class Student {
 
     private String name;
-    private int age;
-    private Date dob;
+    private LocalDate dob;
     private int id;
+    private int age;
     private String username;
 
-    public Student(String name, int age, Date dob, int id){
+    public Student(String name, LocalDate dob, int id){
         this.name=name;
-        this.age=age;
         this.dob=dob;
+        LocalDate presentTime = new LocalDate().now();
+        int studentAge= Years.yearsBetween(presentTime,dob).getYears();
         this.id=id;
-        this.username=getUsername(name,age);
+        this.username=getUsername(name,studentAge);
 
     }
     public String getUsername(String name, int age){
@@ -33,7 +37,7 @@ public class Student {
         return age;
     }
 
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
