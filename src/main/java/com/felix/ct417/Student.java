@@ -16,7 +16,8 @@ public class Student {
     private int studentAge;
     private String username;
     private ArrayList<Module> studentModules;
-    public Student(String firstName,String lastName, LocalDate dob, int id){
+    private Course course;
+    public Student(String firstName,String lastName, LocalDate dob, int id, Course course){
         this.firstName=firstName;
         this.lastName=lastName;
         this.dob=dob;
@@ -25,7 +26,12 @@ public class Student {
         this.id=id;
         this.username=getUsername(firstName,lastName,this.studentAge);
         this.studentModules = new ArrayList<Module>();
+        this.course=course;
 
+    }
+
+    public Course getCourse() {
+        return course;
     }
 
     public void addStudentModule(Module module) {
